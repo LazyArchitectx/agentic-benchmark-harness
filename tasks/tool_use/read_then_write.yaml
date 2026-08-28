@@ -1,0 +1,15 @@
+id: tool-use-001
+domain: tool_use
+prompt: "Read the existing file, then write a corrected implementation and verify it runs."
+available_tools: [read_file, write_code, run_code]
+max_steps: 6
+checks:
+  - kind: tool_order
+    value: [read_file, write_code]
+  - kind: used_tool
+    value: run_code
+mock_script:
+  - {kind: tool, tool: read_file, args: {path: "add.py"}}
+  - {kind: tool, tool: write_code, args: {code: "def add(a, b):\n    return a + b"}}
+  - {kind: tool, tool: run_code, args: {}}
+  - {kind: finish, output: "Read the stub, implemented add(a, b), and run_code passed."}

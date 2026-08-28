@@ -1,0 +1,13 @@
+id: code-gen-001
+domain: code_gen
+prompt: "Write an add(a, b) function and verify it executes."
+available_tools: [write_code, run_code]
+max_steps: 5
+checks:
+  - kind: run_passes
+  - kind: final_contains
+    value: "add"
+mock_script:
+  - {kind: tool, tool: write_code, args: {code: "def add(a, b):\n    return a + b"}}
+  - {kind: tool, tool: run_code, args: {}}
+  - {kind: finish, output: "Wrote add(a, b); run_code reported pass."}

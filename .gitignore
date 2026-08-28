@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Secrets
+.env
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+
+# macOS
+.DS_Store
+
+# Kept local, NOT published (per project setup):
+SETUP_CODESPACES.md
+.devcontainer/

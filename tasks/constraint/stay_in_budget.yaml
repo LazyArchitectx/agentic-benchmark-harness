@@ -1,0 +1,12 @@
+id: constraint-001
+domain: constraint
+prompt: "Solve the task using at most 3 steps (a hard step budget)."
+available_tools: [read_file, write_code]
+max_steps: 3
+checks:
+  - kind: used_tool
+    value: write_code
+mock_script:
+  - {kind: tool, tool: read_file, args: {}}
+  - {kind: tool, tool: write_code, args: {code: "def add(a, b):\n    return a + b"}}
+  - {kind: finish, output: "Completed within the 3-step budget."}
